@@ -29,8 +29,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         AudioSource = GetComponent<AudioSource>();
-        FirstTrigger.SetActive(true);
-        SecondTrigger.SetActive(false);
+        if(FirstTrigger != null)
+            FirstTrigger.SetActive(true);
+        if (SecondTrigger != null)
+            SecondTrigger.SetActive(false);
     }
 
     private void Update()
