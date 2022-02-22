@@ -143,6 +143,9 @@ TextureImporter:
   - first:
       213: -2531074035140014093
     second: Player_land_2
+  - first:
+      213: 2425571995158539275
+    second: Head
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1238,6 +1241,27 @@ TextureImporter:
       bones: []
       spriteID: 3ffc3434391dfdcd0800000000000000
       internalID: -2531074035140014093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 4128
+        width: 191
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0c6f8cd0ec59a120800000000000000
+      internalID: 2425571995158539275
       vertices: []
       indices: 
       edges: []

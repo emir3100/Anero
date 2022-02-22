@@ -72,4 +72,9 @@ public class PlayerMovement : MonoBehaviour
         audioSource.PlayOneShot(stepSound, Mathf.Abs(Input.GetAxis("Horizontal") / 10));
     }
 
+    public void StopPlayer()
+    {
+        horizontalMove = 0f;
+    }
+
 }

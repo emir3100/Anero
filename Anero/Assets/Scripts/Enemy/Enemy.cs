@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     public AudioClip block;
 
     public GameObject HitEffect;
+    public GameObject DropItem;
 
     public bool CanAttackPlayer;
     private int currentHealth;
@@ -51,6 +52,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = MaxHealth;
     }
+
 
     private void Update()
     {
@@ -131,12 +133,12 @@ public class Enemy : MonoBehaviour
         if(transform.position.x < CharacterController2D.Instance.transform.position.x)
         {
             rigidbody.velocity = new Vector2(MoveSpeed, 0);
-            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         else if(transform.position.x > CharacterController2D.Instance.transform.position.x)
         {
             rigidbody.velocity = new Vector2(-MoveSpeed, 0);
-            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 
@@ -163,6 +165,9 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        if(DropItem != null)
+            Instantiate(DropItem, transform.position, Quaternion.identity);
+
         var effect = Instantiate(HitEffect, transform.position, Quaternion.identity);
         Destroy(effect, 2f);
         GameManager.Instance.AudioSource.PlayOneShot(death);

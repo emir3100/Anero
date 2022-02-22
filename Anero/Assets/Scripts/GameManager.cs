@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     //public DialogueBoxController dialogueBoxController;
     public CameraEffects cameraEffects;
+    public bool GameStarted;
     [SerializeField] public AudioTrigger gameMusic;
     [SerializeField] public AudioTrigger gameAmbience;
 
