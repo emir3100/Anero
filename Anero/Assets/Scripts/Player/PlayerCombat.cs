@@ -10,6 +10,7 @@ public class PlayerCombat : MonoBehaviour
     public float AttackRange = 0.5f;
     public float AttackRate = 2f;
     public LayerMask EnemyLayers;
+    public LayerMask BarrelLayers;
 
     public float MaxStamina = 100f;
     public Image Slider;
@@ -66,11 +67,19 @@ public class PlayerCombat : MonoBehaviour
         else if (attack == 2)
             GameManager.Instance.AudioSource.PlayOneShot(swing2);
 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
+        var hitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
 
         foreach (var enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(25);
+        }
+
+        var hitBarrels = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, BarrelLayers);
+
+        foreach (var barrel in hitBarrels)
+        {
+            barrel.GetComponent<Barrel>().HitBarrel();
+            Debug.Log("barrel is hit");
         }
     }
     

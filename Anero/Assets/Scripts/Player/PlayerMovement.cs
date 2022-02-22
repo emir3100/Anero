@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * RunSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        Physics2D.IgnoreLayerCollision(6, 7);
     }
 
     private void FixedUpdate()
