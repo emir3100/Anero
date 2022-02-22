@@ -11,6 +11,21 @@ public class TriggerText : MonoBehaviour
     public bool HideOnView;
     private bool currentView = false;
 
+    private void Start()
+    {
+        if (Player == null)
+            Player = GameObject.FindGameObjectWithTag("Player");
+
+        if(bg == null)
+            bg = GameObject.FindGameObjectWithTag("BG").GetComponent<Image>();
+
+        if (avatar == null)
+            avatar = GameObject.FindGameObjectWithTag("Avatar").GetComponent<Image>();
+
+        if(typeWriterEffect == null)
+            typeWriterEffect = GameObject.FindGameObjectWithTag("Text").GetComponent<TypeWriterEffect>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && !currentView)

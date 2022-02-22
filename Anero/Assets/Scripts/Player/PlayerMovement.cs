@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     
     private CharacterController2D characterController;
     private Animator animator;
-
+    public bool AllowMove = true;
     private float horizontalMove = 0f;
 
     public float RunSpeed = 40f;
@@ -44,7 +44,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * RunSpeed;
+        if(AllowMove)
+        {
+            horizontalMove = Input.GetAxisRaw("Horizontal") * RunSpeed;
+        }
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         Physics2D.IgnoreLayerCollision(6, 7);
@@ -52,7 +55,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        characterController.Move(horizontalMove * Time.fixedDeltaTime, false, false);
+        if (AllowMove)
+        {
+            characterController.Move(horizontalMove * Time.fixedDeltaTime, false, false);
+        }
     }
 
     public void SetGroundType()

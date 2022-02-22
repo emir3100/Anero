@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public AudioTrigger gameMusic;
     [SerializeField] public AudioTrigger gameAmbience;
 
+    public GameObject FirstTrigger, SecondTrigger;
 
     public AudioSource AudioSource;
 
@@ -28,7 +29,19 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         AudioSource = GetComponent<AudioSource>();
+        FirstTrigger.SetActive(true);
+        SecondTrigger.SetActive(false);
     }
+
+    private void Update()
+    {
+        if(Inventory.Instance.TicketsCollected >= 3)
+        {
+            FirstTrigger.SetActive(false);
+            SecondTrigger.SetActive(true);
+        }
+    }
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Confined;

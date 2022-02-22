@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TicketType: 0
   CollectedClip: {fileID: 8300000, guid: aba3fa39ef7bbe84495bc1a0620d92e0, type: 3}
+  DropItem: {fileID: 8238023076259754936, guid: 08a4274653d8b5b4e86e630eb0f78142, type: 3}
 --- !u!1 &3971539572636593087
 GameObject:
   m_ObjectHideFlags: 0
